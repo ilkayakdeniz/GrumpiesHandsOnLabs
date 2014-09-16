@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   namespace="GrumpiesHandsOnLabs.Domain" 
+                   assembly="GrumpiesHandsOnLabs">
+  
+  <class name="Customer" >
+    <id name="Id" column="Id" >
+      <generator class="identity" />
+    </id>
+    <property name="Name" length="50" not-null="true" />
+    <property name="SurName" length="50" not-null="true" />
+    <property name="EMail" length="100" />
+    <property name="BirthDate" not-null="true" />
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-NHibernate", "01-NHibernate", "{DE0B1BE2-0A76-4610-838D-78F47E326325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupRunner", "SetupRunner\SetupRunner.csproj", "{3AC41BBF-CFDE-4BD8-AAAB-445900392138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_ConfigureByXml", "NHibernate\01-ConfigureByXml\01_ConfigureByXml.csproj", "{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_ConfigureByCode", "NHibernate\02-ConfigureByCode\02_ConfigureByCode.csproj", "{D4B11150-50BC-472D-BD8E-B7B831661BE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_ConfigureByFluentNHibernateHbmMapping", "NHibernate\03-ConfigureByFluentNHibernateHbmMapping\03_ConfigureByFluentNHibernateHbmMapping.csproj", "{2E118421-5C09-4BDF-9379-E633FD75A46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_ConfigureByFluentNHibernate", "NHibernate\04-ConfigureByFluentNHibernate\04_ConfigureByFluentNHibernate.csproj", "{A8747765-A557-44A0-BA76-483895AC4B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Associations", "NHibernate\05-Associations\05_Associations.csproj", "{842E2A3B-74B8-47E4-BA81-85AA581698D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-AutoMapper", "02-AutoMapper", "{42D23B37-69B1-44A8-BDB3-1FC1069068CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-FluentMigrator", "03-FluentMigrator", "{18AF9B99-F44C-4A4D-8DA8-23C630552208}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-IoC", "04-IoC", "{F7FEA93D-3E86-456B-8220-2FDC985ED3E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Service[Application]", "05-Service[Application]", "{0AD68D18-CBF7-4F07-8FCD-08CC888E70FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-Logging", "06-Logging", "{5E5B11D0-443B-4866-9597-B6112CF82EA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07-Cache", "07-Cache", "{3DEC7C64-E950-46A4-84DC-2D756A6D059F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08-UnitTest", "08-UnitTest", "{89F0BA93-325A-46EE-A05C-8FEDDFF63C68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09-Quartz", "09-Quartz", "{2F44A658-513A-4D2C-9617-4175A7C9540F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10-Queue", "10-Queue", "{11C140BE-78B4-477B-97C8-EED19F445BBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11-BUS", "11-BUS", "{DCFF7661-BBCD-4364-9F7C-59BF70CAD8D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B11150-50BC-472D-BD8E-B7B831661BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B11150-50BC-472D-BD8E-B7B831661BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B11150-50BC-472D-BD8E-B7B831661BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B11150-50BC-472D-BD8E-B7B831661BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E118421-5C09-4BDF-9379-E633FD75A46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E118421-5C09-4BDF-9379-E633FD75A46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E118421-5C09-4BDF-9379-E633FD75A46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E118421-5C09-4BDF-9379-E633FD75A46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8747765-A557-44A0-BA76-483895AC4B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8747765-A557-44A0-BA76-483895AC4B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8747765-A557-44A0-BA76-483895AC4B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8747765-A557-44A0-BA76-483895AC4B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842E2A3B-74B8-47E4-BA81-85AA581698D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842E2A3B-74B8-47E4-BA81-85AA581698D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842E2A3B-74B8-47E4-BA81-85AA581698D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842E2A3B-74B8-47E4-BA81-85AA581698D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+		{D4B11150-50BC-472D-BD8E-B7B831661BE2} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+		{2E118421-5C09-4BDF-9379-E633FD75A46B} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+		{A8747765-A557-44A0-BA76-483895AC4B34} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+		{842E2A3B-74B8-47E4-BA81-85AA581698D2} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+	EndGlobalSection
+EndGlobal
