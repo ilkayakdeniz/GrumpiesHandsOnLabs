@@ -6,6 +6,6 @@
     <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
     <property name="connection.connection_string">server=localhost\SQLExpress;initial catalog=GrumpiesHandsOnLabs;Integrated Security=True</property>
     <property name="show_sql">true</property>
-    <mapping assembly="ConfigureByXml"/>
+    <mapping assembly="GrumpiesHandsOnLabs"/>
   </session-factory>
 </hibernate-configuration>

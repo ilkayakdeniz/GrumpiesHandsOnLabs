@@ -11,7 +11,7 @@ namespace GrumpiesHandsOnLabs.Mapping
             Id(x => x.Id);
             Map(x => x.Name).Length(50).Not.Nullable();
             Map(x => x.Street).Length(50).Not.Nullable();
-            Map(x => x.PostCode).Length(50).Not.Update();            
+            Map(x => x.PostCode).Length(50).Not.Update(); // This field can never be updated      
         }
     }
 }

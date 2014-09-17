@@ -3,15 +3,19 @@ GO
 
 PRINT N'Cleaning schema'+char(13)+char(10)
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Customer]') AND type in (N'U'))
-DROP TABLE [dbo].[Customer]
+DECLARE @name VARCHAR(128)
+DECLARE @SQL VARCHAR(254)
+
+SELECT @name = (SELECT TOP 1 [name] FROM sysobjects WHERE [type] = 'U' AND category = 0 ORDER BY [name])
+
+WHILE @name IS NOT NULL
+BEGIN
+    SELECT @SQL = 'DROP TABLE [dbo].[' + RTRIM(@name) +']'
+    EXEC (@SQL)
+    PRINT 'Dropped Table: ' + @name
+    SELECT @name = (SELECT TOP 1 [name] FROM sysobjects WHERE [type] = 'U' AND category = 0 AND [name] > @name ORDER BY [name])
+END
 GO
-
-
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Adress]') AND type in (N'U'))
-DROP TABLE [dbo].[Adress]
-GO
-
 
 PRINT N'Schema cleaned'+char(13)+char(10)
 
@@ -38,5 +42,16 @@ CREATE TABLE dbo.Adress
 	)  ON [PRIMARY]
 GO
 
+
+CREATE TABLE dbo.SalesTrnx
+	(
+	Id int NOT NULL IDENTITY (1, 1),
+	TrnxTime DATETIME NOT NULL,
+	TrnxStatus int NOT NULL,
+	Volume decimal(6,2) NOT NULL,
+	CurrencyCode int NOT NULL
+	
+	)  ON [PRIMARY]
+GO
 
 PRINT N'Schema Created'+char(13)+char(10)

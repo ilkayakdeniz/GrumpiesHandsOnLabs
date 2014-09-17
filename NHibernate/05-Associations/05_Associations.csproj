@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Adress.cs" />
+    <Compile Include="Domain\SalesTrnx.cs" />
     <Compile Include="Mapping\AdressMap.cs" />
-    <Compile Include="Scenarios\S02_PropertyNotUpdatable_WithoutTransaction.cs" />
-    <Compile Include="Scenarios\S01_Property_WithoutTransaction.cs" />
+    <Compile Include="Mapping\SalesTrnxMap.cs" />
+    <Compile Include="Scenarios\S03_ValueType.cs" />
+    <Compile Include="Scenarios\S02_PropertyNotUpdatable.cs" />
+    <Compile Include="Scenarios\S01_Property.cs" />
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

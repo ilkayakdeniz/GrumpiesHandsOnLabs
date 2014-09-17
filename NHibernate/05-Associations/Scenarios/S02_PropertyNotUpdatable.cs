@@ -10,7 +10,7 @@ using GrumpiesHandsOnLabs.Mapping;
 namespace GrumpiesHandsOnLabs.Scenarios
 {
 
-    public static class S02_PropertyNotUpdatable_WithoutTransaction
+    public static class S02_PropertyNotUpdatable
     {
         public static void Run()
         {
@@ -69,6 +69,7 @@ namespace GrumpiesHandsOnLabs.Scenarios
                 session.Update(dbAdress);
                 session.Flush();
                 //SQLProfiler UPDATE Check UPDATE statement if postcode is being updated
+                //Check mapping of the Adress Class!
             }
 
             #endregion
@@ -84,27 +85,30 @@ namespace GrumpiesHandsOnLabs.Scenarios
             #region Save - Select - Update WITHIN SEPRATE SESSION
 
             using (var session = factory.OpenSession())
+            using (var transaction = session.BeginTransaction())
             {
                 Adress adress = new Adress();
                 adress.Name = "Ev_" + random.ToString();
                 adress.Street = "Street_" + random.ToString();
                 adress.PostCode = "PC_" + random.ToString();
                 session.Save(adress);
-
+                transaction.Commit();
                 adressId = adress.Id;
                 //SQLProfiler  - INSERT
             }
 
             using (var session = factory.OpenSession())
+            using (var transaction = session.BeginTransaction())
             {
                 Adress dbAdress = session.Get<Adress>(adressId);
                 dbAdress.Name = "Updated_EV_" + random.ToString();
                 dbAdress.PostCode = "Updated_PC_" + random.ToString();
-                ///SQLProfiler  - SELECT
+                //SQLProfiler  - SELECT
 
                 session.Update(dbAdress);   
-                session.Flush();
-                ///SQLProfiler - UPDATE  Check UPDATE statement if postcode is being updated
+                transaction.Commit();
+                //SQLProfiler - UPDATE  Check UPDATE statement if postcode is being updated
+                //Check mapping of the Adress Class!
             }
 
             #endregion

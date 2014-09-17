@@ -14,7 +14,7 @@ namespace GrumpiesHandsOnLabs.Mapping
     {
         public override bool ShouldMap(Type type)
         {
-            return type.Namespace == "ConfigureByFluentNHibernate.Domain";
+            return type.Namespace == "GrumpiesHandsOnLabs.Domain";
         }
     }
 }

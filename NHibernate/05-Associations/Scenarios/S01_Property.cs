@@ -10,7 +10,7 @@ using GrumpiesHandsOnLabs.Mapping;
 namespace GrumpiesHandsOnLabs.Scenarios
 {
 
-    public static class S01_Property_WithoutTransaction
+    public static class S01_Property
     {
         public static void Run()
         {
@@ -37,6 +37,7 @@ namespace GrumpiesHandsOnLabs.Scenarios
 
 
                 using (var session = factory.OpenSession())
+                using (var transaction = session.BeginTransaction())
                 {                    
                     Customer customer = new Customer();
                     customer.Name = "Barış_" + random.ToString();
@@ -45,6 +46,7 @@ namespace GrumpiesHandsOnLabs.Scenarios
                     customer.BirthDate = DateTime.Today;
                         
                     session.Save(customer);
+                    transaction.Commit();
                 }
             }
             catch (Exception ex)
