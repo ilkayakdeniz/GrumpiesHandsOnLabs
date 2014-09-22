@@ -52,12 +52,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SetUp\setup.bat" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="SetUp\setup.sql" />
-    <Content Include="SetUp\SetupRunner.exe" />
     <EmbeddedResource Include="Mapping\Customer.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

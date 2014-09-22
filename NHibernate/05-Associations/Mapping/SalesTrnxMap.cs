@@ -18,13 +18,4 @@ namespace GrumpiesHandsOnLabs.Mapping
             Component(x => x.Amount);
         }
     }
-
-    public class AmountMap : ComponentMap<Amount>
-    {
-        public AmountMap()
-        {
-            Map(x => x.CurrencyCode).Not.Nullable();
-            Map(x => x.Volume).Not.Nullable();
-        }
-    }
 }

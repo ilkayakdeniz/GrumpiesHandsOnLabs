@@ -44,9 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Adress.cs" />
+    <Compile Include="Domain\Amount.cs" />
+    <Compile Include="Domain\Department.cs" />
+    <Compile Include="Domain\Developer.cs" />
     <Compile Include="Domain\SalesTrnx.cs" />
     <Compile Include="Mapping\AdressMap.cs" />
+    <Compile Include="Mapping\AmountMap.cs" />
+    <Compile Include="Mapping\DepartmentMap.cs" />
+    <Compile Include="Mapping\DeveloperMap.cs" />
     <Compile Include="Mapping\SalesTrnxMap.cs" />
+    <Compile Include="Scenarios\S04_unidirectional_many_to_one_insert.cs" />
+    <Compile Include="Scenarios\S05_unidirectional_many_to_one_update.cs" />
     <Compile Include="Scenarios\S03_ValueType.cs" />
     <Compile Include="Scenarios\S02_PropertyNotUpdatable.cs" />
     <Compile Include="Scenarios\S01_Property.cs" />
@@ -58,12 +66,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Scenarios\T01_References.docx" />
-    <None Include="SetUp\setup.bat" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="SetUp\setup.sql" />
-    <Content Include="SetUp\SetupRunner.exe" />
     <Compile Include="Mapping\CustomerMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

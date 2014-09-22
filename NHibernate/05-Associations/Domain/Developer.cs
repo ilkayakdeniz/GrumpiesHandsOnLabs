@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace GrumpiesHandsOnLabs.Domain
 {
-    public class SalesTrnx
+    public class Developer
     {
         public virtual int Id { get; set; }
-        public virtual DateTime TrnxTime { get; set; }
-        public virtual int TrnxStatus { get; set; }
-        public virtual Amount Amount { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string SurName { get; set; }
+        public virtual Department Department { get; set; }
     }
-
 }

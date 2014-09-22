@@ -50,12 +50,9 @@
     <None Include="Scenarios\T02_NoPersisterForException_hibernate_cfg.docx" />
     <None Include="Scenarios\T01_NoPersisterForException_EmbeddedResource.docx" />
     <None Include="packages.config" />
-    <None Include="SetUp\setup.bat" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="SetUp\setup.sql" />
-    <Content Include="SetUp\SetupRunner.exe" />
     <EmbeddedResource Include="Mappings\Customer.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
