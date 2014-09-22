@@ -11,7 +11,7 @@ using GrumpiesHandsOnLabs.Mapping;
 namespace GrumpiesHandsOnLabs.Scenarios
 {
 
-    public static class S04_unidirectional_many_to_one_insert
+    public static class S07_unidirectional_one_to_many_update
     {
         public static void Run()
         {
@@ -35,39 +35,25 @@ namespace GrumpiesHandsOnLabs.Scenarios
 
                 Random randomGenerator = new Random();
                 int random = randomGenerator.Next((int)(DateTime.Now.Ticks % (long)int.MaxValue));
-
-
-                int departmentId = 0;
-
+                
+                int projectId = 8;
 
                 using (var session = factory.OpenSession())
                 using (var transaction = session.BeginTransaction())
                 {
-
                     
-                    Department dep = new Department();
-                    dep.Name = "Dep_" + random.ToString();
+                    Contributor contributor = new Contributor();
+                    contributor.Nickname = "Contributor_" + random.ToString();
+                    contributor.Commits = random;
+                    
+                    Project project = session.Get<Project>(projectId); // ID might not be existing in the database
+                    project.Contributors.Add(contributor);
 
 
-                    Developer developer = new Developer();
-                    developer.Name = "Barış_" + random.ToString();
-                    developer.SurName = "Akan_" + random.ToString();
-                    developer.Department = dep; //Add department to developer
-
-
-                    session.Save(developer);
+                    session.Save(project);
                     transaction.Commit();
-
-                    departmentId = dep.Id;
-
+               
                 }
-
-                using (var session = factory.OpenSession())
-                using (var transaction = session.BeginTransaction())
-                {
-                    Department dep = session.Get<Department>(departmentId);
-                }
-
 
             }
             catch (Exception ex)

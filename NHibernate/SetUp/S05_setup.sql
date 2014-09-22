@@ -55,6 +55,7 @@ CREATE TABLE dbo.Department
 GO
 
 
+
 ALTER TABLE dbo.Department ADD CONSTRAINT
 	PK_Department PRIMARY KEY CLUSTERED 
 	(
@@ -78,6 +79,54 @@ ALTER TABLE dbo.Developer ADD CONSTRAINT
 GO
 ALTER TABLE dbo.Developer SET (LOCK_ESCALATION = TABLE)
 GO
+
+
+
+CREATE TABLE dbo.Project
+	(
+	Id int NOT NULL IDENTITY (1, 1),
+	Name nvarchar(50) NOT NULL,	
+	StartDate date NOT NULL,
+	EndDate date NOT NULL
+	)  ON [PRIMARY]
+GO
+
+CREATE TABLE dbo.Contributor
+	(
+	Id int NOT NULL IDENTITY (1, 1),
+	Name nvarchar(50) NOT NULL,
+	Commits int NOT NULL,
+	ProjectId int NULL
+	)  ON [PRIMARY]
+GO
+
+
+
+ALTER TABLE dbo.Project ADD CONSTRAINT
+	PK_Project PRIMARY KEY CLUSTERED 
+	(
+	Id
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.Project SET (LOCK_ESCALATION = TABLE)
+GO
+
+ALTER TABLE dbo.Contributor ADD CONSTRAINT
+	FK_Contributor_Project FOREIGN KEY
+	(
+	ProjectId
+	) REFERENCES dbo.Project
+	(
+	Id
+	) ON UPDATE  NO ACTION 
+	 ON DELETE  NO ACTION 
+	
+GO
+ALTER TABLE dbo.Contributor SET (LOCK_ESCALATION = TABLE)
+GO
+
+
 
 
 PRINT N'Schema Created'+char(13)+char(10)

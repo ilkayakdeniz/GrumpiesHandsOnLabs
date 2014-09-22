@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace GrumpiesHandsOnLabs.Domain
 {
-    public class Developer
+    public class Project
     {
+
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
-        public virtual string SurName { get; set; }
-        public virtual Department Department { get; set; }        
+        public virtual DateTime StartDate { get; set; }
+        public virtual DateTime EndDate { get; set; }
+        public virtual IList<Contributor> Contributors { get; set; }
+        
     }
 }

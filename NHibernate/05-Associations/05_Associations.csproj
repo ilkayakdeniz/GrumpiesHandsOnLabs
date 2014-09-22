@@ -45,15 +45,21 @@
   <ItemGroup>
     <Compile Include="Domain\Adress.cs" />
     <Compile Include="Domain\Amount.cs" />
+    <Compile Include="Domain\Contributor.cs" />
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\Developer.cs" />
+    <Compile Include="Domain\Project.cs" />
     <Compile Include="Domain\SalesTrnx.cs" />
     <Compile Include="Mapping\AdressMap.cs" />
     <Compile Include="Mapping\AmountMap.cs" />
+    <Compile Include="Mapping\ProjectMap.cs" />
     <Compile Include="Mapping\DepartmentMap.cs" />
     <Compile Include="Mapping\DeveloperMap.cs" />
+    <Compile Include="Mapping\ContributorMap.cs" />
     <Compile Include="Mapping\SalesTrnxMap.cs" />
+    <Compile Include="Scenarios\S07_unidirectional_one_to_many_update.cs" />
     <Compile Include="Scenarios\S04_unidirectional_many_to_one_insert.cs" />
+    <Compile Include="Scenarios\S06_unidirectional_one_to_many_insert.cs" />
     <Compile Include="Scenarios\S05_unidirectional_many_to_one_update.cs" />
     <Compile Include="Scenarios\S03_ValueType.cs" />
     <Compile Include="Scenarios\S02_PropertyNotUpdatable.cs" />
