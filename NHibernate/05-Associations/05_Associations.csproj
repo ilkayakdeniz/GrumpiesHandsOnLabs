@@ -52,11 +52,16 @@
     <Compile Include="Domain\SalesTrnx.cs" />
     <Compile Include="Mapping\AdressMap.cs" />
     <Compile Include="Mapping\AmountMap.cs" />
+    <Compile Include="Domain\Author.cs" />
+    <Compile Include="Domain\Book.cs" />
+    <Compile Include="Mapping\AuthorMap.cs" />
+    <Compile Include="Mapping\BookMap.cs" />
     <Compile Include="Mapping\ProjectMap.cs" />
     <Compile Include="Mapping\DepartmentMap.cs" />
     <Compile Include="Mapping\DeveloperMap.cs" />
     <Compile Include="Mapping\ContributorMap.cs" />
     <Compile Include="Mapping\SalesTrnxMap.cs" />
+    <Compile Include="Scenarios\S061_unidirectional_one_to_many_insert.cs" />
     <Compile Include="Scenarios\S07_unidirectional_one_to_many_update.cs" />
     <Compile Include="Scenarios\S04_unidirectional_many_to_one_insert.cs" />
     <Compile Include="Scenarios\S06_unidirectional_one_to_many_insert.cs" />
@@ -67,6 +72,11 @@
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenarios\S08_bidirectional_references_side.cs" />
+    <Compile Include="Scenarios\S092_bidirectional_has_many_side.cs" />
+    <Compile Include="Scenarios\S093_bidirectional_has_many_side.cs" />
+    <Compile Include="Scenarios\S09_bidirectional_has_many_side.cs" />
+    <Compile Include="Scenarios\S091_bidirectional_has_many_side.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

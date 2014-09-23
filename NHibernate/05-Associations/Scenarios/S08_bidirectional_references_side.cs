@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using FluentNHibernate.Automapping;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using GrumpiesHandsOnLabs.Domain;
 using NHibernate;
 using NHibernate.Cfg;
-using GrumpiesHandsOnLabs.Domain;
-using GrumpiesHandsOnLabs.Mapping;
 
 namespace GrumpiesHandsOnLabs.Scenarios
 {
-
-    public static class S06_unidirectional_one_to_many_insert
+    public class S08_bidirectional_references_side
     {
+
         public static void Run()
         {
             Configuration cfg = null;
@@ -37,48 +38,40 @@ namespace GrumpiesHandsOnLabs.Scenarios
                 int random = randomGenerator.Next((int)(DateTime.Now.Ticks % (long)int.MaxValue));
 
 
-                int projectId = 0;
+                int bookId = 0;
 
 
                 using (var session = factory.OpenSession())
                 using (var transaction = session.BeginTransaction())
                 {
 
+                    Book book = new Book();
+                    book.Name = "Book_" + random.ToString();
+                    book.ISBN = "ISBN_" + random.ToString();
+                    book.Price = 100;
 
-                    Project project = new Project();
-                    project.Name = "Project_" + random.ToString();
-                    project.StartDate = DateTime.Now;
-                    project.EndDate = DateTime.Now.AddDays(50);
+                    Author author = new Author();
+                    author.Name = "Author_" + random.ToString();
+                    author.Age = 50;
 
+                    book.Author = author;
 
-                    Contributor contributor = new Contributor();
-                    contributor.Name = "Contributor_" + random.ToString();
-                    contributor.Commits= random;
-
-
-                    Contributor contributor2 = new Contributor();
-                    contributor2.Name = "Contributor2_" + random.ToString();
-                    contributor2.Commits = random +2;
-
-
-                    project.Contributors = new List<Contributor>();
-                    project.Contributors.Add(contributor);
-                    project.Contributors.Add(contributor2);
-                    
-
-                    session.Save(project);
+                    session.Save(book); //session saved wihb books
                     transaction.Commit();
 
-                    projectId = project.Id;
+                    bookId = book.Id;
 
-                   
+                    #region FURTHER TRIAL
+
+  
+                    #endregion
                 }
 
                 using (var session = factory.OpenSession())
                 using (var transaction = session.BeginTransaction())
                 {
-                    Project prj = session.Get<Project>(projectId);
-                }    
+                    Book book = session.Get<Book>(bookId);
+                }
 
             }
             catch (Exception ex)

@@ -12,15 +12,21 @@ namespace GrumpiesHandsOnLabs.Mapping
             Map(x => x.Name).Length(50).Not.Nullable();
             Map(x => x.StartDate).Not.Nullable();
             Map(x => x.EndDate).Not.Nullable();
+
+
+            #region S06 - S061[See error]
+
             HasMany<Contributor>(x => x.Contributors)
                 .Cascade.All()
-                .Not.Inverse()
-                .Not.KeyNullable()
                 .KeyColumn("ProjectId");// REMOVE THIS AND TRY AGAIN
 
-            #region FURTHER TRIAL
+            #endregion 
 
-            //USE this block
+
+            #region S061 - FURTHER TRIAL
+
+            //Before using this try with S06 mapping
+            //USE this block for S061
 
             //HasMany<Contributor>(x => x.Contributors)
             //    .Cascade.All()

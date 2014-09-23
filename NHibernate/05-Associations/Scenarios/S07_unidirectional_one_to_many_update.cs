@@ -43,7 +43,7 @@ namespace GrumpiesHandsOnLabs.Scenarios
                 {
                     
                     Contributor contributor = new Contributor();
-                    contributor.Nickname = "Contributor_" + random.ToString();
+                    contributor.Name = "Contributor_" + random.ToString();
                     contributor.Commits = random;
                     
                     Project project = session.Get<Project>(projectId); // ID might not be existing in the database

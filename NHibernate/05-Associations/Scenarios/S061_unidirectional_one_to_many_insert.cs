@@ -11,7 +11,7 @@ using GrumpiesHandsOnLabs.Mapping;
 namespace GrumpiesHandsOnLabs.Scenarios
 {
 
-    public static class S06_unidirectional_one_to_many_insert
+    public static class S061_unidirectional_one_to_many_insert
     {
         public static void Run()
         {
@@ -44,6 +44,38 @@ namespace GrumpiesHandsOnLabs.Scenarios
                 using (var transaction = session.BeginTransaction())
                 {
 
+                    // CHANGEProjectID column as NOT NULLABLE on Contributor Table
+
+
+                    #region FURTHER TRIAL
+
+                    
+                    /*
+                     * SOLUTION #1
+                    NHibernate doesn't support this mapping when you have a not-null constraint on your foreign key. If you remove that constraint, you'll see that NHibernate inserts the Comments with a null PostId, then updates them with the Id of the new Post.
+
+                    You either need to:
+
+                    Remove the not-null constraint and the Inverse call
+                    Keep the constraint, and map the other side of the relationship (making this a bi-directional relationship, and allowing Inverse to work correctly)
+                    This is covered in the NHibernate documentation for one-to-many's, see the Very Important Note at the end.
+                    
+                     * http://stackoverflow.com/questions/554674/fluent-nhibernate-one-to-many-uni-directional-mapping
+                     * http://www.nhforge.org/doc/nh/en/index.html#collections-onetomany
+                    */
+
+
+                    /*
+                        SOLUTION #2 (Unidirectional yapıyı korumak istiyorsanız)
+                     
+                     * Edit: as Hazzik has rightly pointed out, this has changed in NHibernate 3 and above. The docs sadly haven't been updated, so here's Hazzik:
+                       [If you] set inverse="false" and not-null on <key>, NH3 and above will perform only two inserts insead of insert-insert-update.
+                     *
+                     * http://stackoverflow.com/questions/4466153/nhibernate-configuration-for-uni-directional-one-to-many-relation
+                     * 
+                     */
+
+                    #endregion
 
                     Project project = new Project();
                     project.Name = "Project_" + random.ToString();
@@ -71,7 +103,8 @@ namespace GrumpiesHandsOnLabs.Scenarios
 
                     projectId = project.Id;
 
-                   
+
+
                 }
 
                 using (var session = factory.OpenSession())

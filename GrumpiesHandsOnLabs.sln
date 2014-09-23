@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-NHibernate", "01-NHibernate", "{DE0B1BE2-0A76-4610-838D-78F47E326325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupRunner", "SetupRunner\SetupRunner.csproj", "{3AC41BBF-CFDE-4BD8-AAAB-445900392138}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_ConfigureByXml", "NHibernate\01-ConfigureByXml\01_ConfigureByXml.csproj", "{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_ConfigureByCode", "NHibernate\02-ConfigureByCode\02_ConfigureByCode.csproj", "{D4B11150-50BC-472D-BD8E-B7B831661BE2}"
@@ -35,16 +33,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10-Queue", "10-Queue", "{11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11-BUS", "11-BUS", "{DCFF7661-BBCD-4364-9F7C-59BF70CAD8D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{7B329F12-648B-4FB3-8220-4651F09F9CF1}"
+	ProjectSection(SolutionItems) = preProject
+		NHibernate\SetUp\01_setup.bat = NHibernate\SetUp\01_setup.bat
+		NHibernate\SetUp\02_setup.bat = NHibernate\SetUp\02_setup.bat
+		NHibernate\SetUp\03_setup.bat = NHibernate\SetUp\03_setup.bat
+		NHibernate\SetUp\04_setup.bat = NHibernate\SetUp\04_setup.bat
+		NHibernate\SetUp\05_setup.bat = NHibernate\SetUp\05_setup.bat
+		NHibernate\SetUp\cleanup.sql = NHibernate\SetUp\cleanup.sql
+		NHibernate\SetUp\S01_setup.sql = NHibernate\SetUp\S01_setup.sql
+		NHibernate\SetUp\S02_setup.sql = NHibernate\SetUp\S02_setup.sql
+		NHibernate\SetUp\S03_setup.sql = NHibernate\SetUp\S03_setup.sql
+		NHibernate\SetUp\S04_setup.sql = NHibernate\SetUp\S04_setup.sql
+		NHibernate\SetUp\S05_setup.sql = NHibernate\SetUp\S05_setup.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AC41BBF-CFDE-4BD8-AAAB-445900392138}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C9C29B7-7760-48A3-A7BB-5F861C6013A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,5 +84,6 @@ Global
 		{2E118421-5C09-4BDF-9379-E633FD75A46B} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
 		{A8747765-A557-44A0-BA76-483895AC4B34} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
 		{842E2A3B-74B8-47E4-BA81-85AA581698D2} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
+		{7B329F12-648B-4FB3-8220-4651F09F9CF1} = {DE0B1BE2-0A76-4610-838D-78F47E326325}
 	EndGlobalSection
 EndGlobal

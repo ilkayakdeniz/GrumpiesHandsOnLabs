@@ -129,4 +129,31 @@ GO
 
 
 
+CREATE TABLE [dbo].[Author](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Age] [int] NOT NULL,
+ CONSTRAINT [PK_Author] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[Book](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](250) NOT NULL,
+	[ISBN] [nvarchar](50) NOT NULL,
+	[Price] [numeric](15, 4) NOT NULL,
+	[AuthorId] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Book]  WITH CHECK ADD  CONSTRAINT [FK_Book_Author] FOREIGN KEY([AuthorId])
+REFERENCES [dbo].[Author] ([Id])
+GO
+
+ALTER TABLE [dbo].[Book] CHECK CONSTRAINT [FK_Book_Author]
+
 PRINT N'Schema Created'+char(13)+char(10)
