@@ -61,6 +61,7 @@
     <Compile Include="Mapping\DeveloperMap.cs" />
     <Compile Include="Mapping\ContributorMap.cs" />
     <Compile Include="Mapping\SalesTrnxMap.cs" />
+    <Compile Include="Scenarios\Copy of S02_PropertyNotUpdatable.cs" />
     <Compile Include="Scenarios\S061_unidirectional_one_to_many_insert.cs" />
     <Compile Include="Scenarios\S07_unidirectional_one_to_many_update.cs" />
     <Compile Include="Scenarios\S04_unidirectional_many_to_one_insert.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Scenarios\S05_unidirectional_many_to_one_update.cs" />
     <Compile Include="Scenarios\S03_ValueType.cs" />
     <Compile Include="Scenarios\S02_PropertyNotUpdatable.cs" />
-    <Compile Include="Scenarios\S01_Property.cs" />
+    <Compile Include="Scenarios\S01_Simple.cs" />
     <Compile Include="Domain\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

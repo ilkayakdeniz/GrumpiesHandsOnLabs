@@ -10,7 +10,7 @@ using GrumpiesHandsOnLabs.Mapping;
 namespace GrumpiesHandsOnLabs.Scenarios
 {
 
-    public static class S01_Property
+    public static class S01_Simple
     {
         public static void Run()
         {

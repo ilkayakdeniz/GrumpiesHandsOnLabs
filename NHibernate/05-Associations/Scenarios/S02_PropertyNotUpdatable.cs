@@ -32,86 +32,39 @@ namespace GrumpiesHandsOnLabs.Scenarios
 
                 #endregion
 
-                SeperateSession(factory);
-                SingleSession(factory);
+                Random randomGenerator = new Random();
+                int random = randomGenerator.Next((int)(DateTime.Now.Ticks % (long)int.MaxValue));
+
+
+                using (var session = factory.OpenSession())
+                using (var transaction = session.BeginTransaction())
+                {
+                    Adress adress = new Adress();
+                    adress.Name = "Ev_" + random.ToString();
+                    adress.Street = "Street_" + random.ToString();
+                    adress.PostCode = "PC_" + random.ToString();
+
+                    session.Save(adress);
+                    // SQLProfiler  INSERT
+
+                    Adress dbAdress = session.Get<Adress>(adress.Id);
+                    dbAdress.Name = "Updated_EV_" + random.ToString();
+                    dbAdress.PostCode = "Updated_PC_" + random.ToString();
+                    //SQLProfiler  you don't see select !?!?! plase check further scenarios related with sesssion
+                    //Where is the select?
+
+                    session.Update(dbAdress);
+                    transaction.Commit();
+
+                    //SQLProfiler UPDATE Check UPDATE statement if postcode is being updated
+                    //Check mapping of the Adress Class!
+                }
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
-
-        private static void SingleSession(ISessionFactory factory)
-        {
-            Random randomGenerator = new Random();
-            int random = randomGenerator.Next((int)(DateTime.Now.Ticks % (long)int.MaxValue));
-
-
-            #region Save - Select - Update WITHIN SAME SESSION
-            
-
-            using (var session = factory.OpenSession())
-            {
-                Adress adress = new Adress();
-                adress.Name = "Ev_" + random.ToString();
-                adress.Street = "Street_" + random.ToString();
-                adress.PostCode = "PC_" + random.ToString();
-
-                session.Save(adress);               
-                // SQLProfiler  INSERT
-
-                Adress dbAdress = session.Get<Adress>(adress.Id);
-                dbAdress.Name = "Updated_EV_" + random.ToString();
-                dbAdress.PostCode = "Updated_PC_" + random.ToString();
-                //SQLProfiler  SELECT !?!?! 
-                //Where is the select?
-
-                session.Update(dbAdress);
-                session.Flush();
-                //SQLProfiler UPDATE Check UPDATE statement if postcode is being updated
-                //Check mapping of the Adress Class!
-            }
-
-            #endregion
-        }
-
-        private static void SeperateSession(ISessionFactory factory)
-        {
-            Random randomGenerator = new Random();
-            int random = randomGenerator.Next((int) (DateTime.Now.Ticks%(long) int.MaxValue));
-
-            int adressId = 0;
-
-            #region Save - Select - Update WITHIN SEPRATE SESSION
-
-            using (var session = factory.OpenSession())
-            using (var transaction = session.BeginTransaction())
-            {
-                Adress adress = new Adress();
-                adress.Name = "Ev_" + random.ToString();
-                adress.Street = "Street_" + random.ToString();
-                adress.PostCode = "PC_" + random.ToString();
-                session.Save(adress);
-                transaction.Commit();
-                adressId = adress.Id;
-                //SQLProfiler  - INSERT
-            }
-
-            using (var session = factory.OpenSession())
-            using (var transaction = session.BeginTransaction())
-            {
-                Adress dbAdress = session.Get<Adress>(adressId);
-                dbAdress.Name = "Updated_EV_" + random.ToString();
-                dbAdress.PostCode = "Updated_PC_" + random.ToString();
-                //SQLProfiler  - SELECT
-
-                session.Update(dbAdress);   
-                transaction.Commit();
-                //SQLProfiler - UPDATE  Check UPDATE statement if postcode is being updated
-                //Check mapping of the Adress Class!
-            }
-
-            #endregion
         }
     }
 }
